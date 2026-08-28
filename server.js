@@ -59,6 +59,7 @@ const MIME = {
 };
 
 const engine = require("./src/engine");
+const stripeRoutes = require("./src/stripe_routes");
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://127.0.0.1:${PORT}`);
@@ -98,6 +99,14 @@ const server = http.createServer(async (req, res) => {
         save(ws);
         return send(res, 201, i);
       }
+      
+      if (req.method === "POST" && url.pathname === "/api/billing/checkout") {
+        return stripeRoutes.handleCheckout(req, res, body);
+      }
+      if (req.method === "POST" && url.pathname === "/api/billing/webhook") {
+        return stripeRoutes.handleWebhook(req, res, JSON.stringify(body));
+      }
+
       if (req.method === "POST" && url.pathname === "/api/invoices/paid") {
         const i = engine.markPaid(ws, body.invoiceId);
         save(ws);

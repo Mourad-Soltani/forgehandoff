@@ -316,10 +316,29 @@ document.body.addEventListener("click", async function (ev) {
 
 const upgradeBtn = document.getElementById("upgradeBtn");
 if (upgradeBtn) {
-  upgradeBtn.addEventListener("click", function () {
-    alert(
-      "Stripe Checkout placeholder.\nSet STRIPE_PRICE_PRO + STRIPE_SECRET_KEY on the server to go live.\n— Mourad.Soltani"
-    );
+  upgradeBtn.addEventListener("click", async function () {
+    try {
+      const res = await fetch("/api/billing/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-Client": SIGNATURE },
+        body: JSON.stringify({ planId: "pro" }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+        return;
+      }
+      alert(
+        (data.error || "Checkout unavailable") +
+          "\n" +
+          (data.setup ? data.setup.join("\n") : "") +
+          "\n— Mourad.Soltani"
+      );
+    } catch (e) {
+      alert(
+        "Stripe Checkout needs the local API server with STRIPE_SECRET_KEY.\nBrowser-only mode cannot charge.\n— Mourad.Soltani"
+      );
+    }
   });
 }
 
