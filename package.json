@@ -1,0 +1,22 @@
+{
+  "name": "forgehandoff",
+  "version": "1.0.0",
+  "description": "ForgeHandoff — client onboarding, project handoff, and invoice recovery for freelancers and agencies. Signed Mourad.Soltani.",
+  "author": "Mourad.Soltani",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/*.test.js",
+    "health": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "micro-saas",
+    "client-onboarding",
+    "project-handoff",
+    "invoice-recovery",
+    "Mourad.Soltani"
+  ]
+}

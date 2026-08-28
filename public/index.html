@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ForgeHandoff — Mourad.Soltani</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="sig">Mourad.Soltani</p>
+      <h1>ForgeHandoff</h1>
+      <p class="tag">Onboard clients. Hand off projects. Recover invoices.</p>
+    </div>
+    <div id="health" class="health"></div>
+  </header>
+
+  <main class="grid">
+    <section>
+      <h2>New client</h2>
+      <form id="clientForm">
+        <input name="name" placeholder="Name" required />
+        <input name="email" type="email" placeholder="Email" />
+        <input name="company" placeholder="Company" />
+        <button type="submit">Add client</button>
+      </form>
+      <ul id="clients"></ul>
+    </section>
+
+    <section>
+      <h2>New project</h2>
+      <form id="projectForm">
+        <select name="clientId" id="clientSelect" required></select>
+        <input name="name" placeholder="Project name" required />
+        <button type="submit">Start onboarding</button>
+      </form>
+      <div id="projects"></div>
+    </section>
+
+    <section>
+      <h2>Invoice recovery</h2>
+      <form id="invoiceForm">
+        <select name="clientId" id="invoiceClient" required></select>
+        <input name="amount" type="number" min="1" step="0.01" placeholder="Amount" required />
+        <input name="dueDate" type="date" required />
+        <button type="submit">Log invoice</button>
+      </form>
+      <ul id="invoices"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>ForgeHandoff v1.0 · Built and signed by <strong>Mourad.Soltani</strong> · For sale / partnership</p>
+  </footer>
+  <script src="/app.js"></script>
+</body>
+</html>

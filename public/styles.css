@@ -1,0 +1,59 @@
+/* ForgeHandoff — Mourad.Soltani */
+:root {
+  --ink: #141414;
+  --paper: #f6f1e8;
+  --accent: #c45c26;
+  --ok: #2f6f4e;
+  --warn: #9b2c2c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Iowan Old Style", Georgia, serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+.top, footer {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #d7cbb8;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+footer { border-top: 1px solid #d7cbb8; border-bottom: 0; }
+.sig { letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.72rem; margin: 0; }
+h1 { margin: 0.15rem 0; font-size: 2rem; }
+.tag { margin: 0; opacity: 0.75; }
+.health {
+  background: #fff;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d7cbb8;
+  min-width: 16rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem 2rem;
+}
+section { background: #fff; padding: 1rem; border: 1px solid #d7cbb8; }
+form { display: grid; gap: 0.45rem; margin-bottom: 1rem; }
+input, select, button {
+  font: inherit;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid #c9bba6;
+  background: #fffdf8;
+}
+button {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  cursor: pointer;
+}
+ul { list-style: none; padding: 0; margin: 0; }
+li, .card { padding: 0.5rem 0; border-bottom: 1px dashed #e2d6c4; }
+.check { display: flex; gap: 0.4rem; align-items: center; font-size: 0.92rem; }
+.ok { color: var(--ok); }
+.warn { color: var(--warn); }
+.muted { opacity: 0.65; font-size: 0.85rem; }
