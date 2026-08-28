@@ -1,16 +1,16 @@
-/* ForgeHandoff — Mourad.Soltani — mobile-first */
+/* ForgeHandoff — Mourad.Soltani — mobile-first v1.4 */
 :root {
   --ink: #1a1714;
-  --paper: #f3ebe0;
+  --paper: #f0e6d8;
   --card: #fffcf7;
-  --line: #d9ccb8;
-  --accent: #c45c26;
-  --accent-soft: #f3e0d4;
-  --ok: #2f6f4e;
-  --warn: #9b2c2c;
-  --muted: #6b6258;
-  --radius: 12px;
-  --shadow: 0 8px 24px rgba(26, 23, 20, 0.06);
+  --line: #d4c4ae;
+  --accent: #c0451a;
+  --accent-soft: #f6e4d6;
+  --ok: #1f6b45;
+  --warn: #a31f1f;
+  --muted: #6a5f54;
+  --radius: 14px;
+  --shadow: 0 10px 28px rgba(26, 23, 20, 0.07);
 }
 
 * { box-sizing: border-box; }
@@ -18,26 +18,27 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
   background:
-    radial-gradient(1200px 500px at 10% -10%, #f8e8d8 0%, transparent 55%),
+    radial-gradient(900px 420px at 0% -5%, #f7dcc4 0%, transparent 50%),
+    radial-gradient(700px 380px at 100% 0%, #e8d9c4 0%, transparent 45%),
     var(--paper);
   color: var(--ink);
   line-height: 1.45;
 }
 
 .shell {
-  max-width: 1100px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 1rem 1rem 2.5rem;
+  padding: 0.85rem 0.85rem 2.25rem;
 }
 
 .top {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-  padding: 1.15rem 1.2rem;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+  padding: 1.1rem 1.15rem;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -50,78 +51,88 @@ body {
     justify-content: space-between;
     align-items: flex-start;
   }
+  .shell { padding: 1.25rem 1.25rem 2.5rem; }
 }
 
 .sig {
   margin: 0;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   color: var(--accent);
   font-family: system-ui, -apple-system, sans-serif;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h1 {
-  margin: 0.25rem 0 0.35rem;
-  font-size: clamp(1.85rem, 5vw, 2.35rem);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  margin: 0.2rem 0 0.3rem;
+  font-size: clamp(1.9rem, 6vw, 2.4rem);
+  letter-spacing: -0.025em;
+  line-height: 1.08;
 }
 
 .tag {
   margin: 0;
   color: var(--muted);
-  max-width: 28rem;
+  max-width: 26rem;
+  font-size: 0.98rem;
 }
 
 #planBadge {
   display: inline-block;
-  margin: 0.65rem 0 0.75rem;
-  padding: 0.25rem 0.55rem;
+  margin: 0.7rem 0 0.65rem;
+  padding: 0.28rem 0.7rem;
   border-radius: 999px;
   background: var(--accent-soft);
+  border: 1px solid #e8c9b0;
   color: var(--ink);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-family: system-ui, -apple-system, sans-serif;
+  font-weight: 600;
 }
 
 #upgradeBtn {
-  display: inline-block;
-  margin-top: 0.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  min-height: 2.5rem;
+  padding: 0.55rem 1rem !important;
+  font-weight: 600;
 }
 
 .health {
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 0.85rem 1rem;
-  min-width: min(100%, 16rem);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  min-width: min(100%, 15.5rem);
   font-family: system-ui, -apple-system, sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
-
-.health strong { display: block; margin-bottom: 0.25rem; }
+.health strong { display: block; margin-bottom: 0.3rem; font-size: 0.95rem; }
+.health .muted { color: var(--muted); font-size: 0.8rem; margin-top: 0.15rem; }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 0.9rem;
 }
-
-@media (min-width: 800px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
+@media (min-width: 860px) {
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 }
 
 section {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 1rem 1.05rem 1.1rem;
+  padding: 1rem 1.05rem 1.15rem;
   box-shadow: var(--shadow);
 }
 
-section h2 {
+h2 {
   margin: 0 0 0.75rem;
   font-size: 1.15rem;
   letter-spacing: -0.01em;
@@ -134,19 +145,21 @@ form {
 }
 
 input, select, button {
-  width: 100%;
   font: inherit;
   font-size: 1rem;
   padding: 0.65rem 0.7rem;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 10px;
   background: #fff;
   color: var(--ink);
+  width: 100%;
+  min-height: 2.65rem;
 }
 
-input:focus, select:focus, button:focus {
-  outline: 2px solid var(--accent);
+input:focus, select:focus {
+  outline: 2px solid #e8b892;
   outline-offset: 1px;
+  border-color: var(--accent);
 }
 
 button {
@@ -156,57 +169,44 @@ button {
   cursor: pointer;
   font-family: system-ui, -apple-system, sans-serif;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  font-size: 0.92rem;
 }
-
-button:hover { filter: brightness(1.08); }
 button:active { transform: translateY(1px); }
 
-#upgradeBtn {
-  width: auto;
-  background: var(--accent);
-  border-color: var(--accent);
-  padding-inline: 0.95rem;
-}
-
 ul { list-style: none; padding: 0; margin: 0; }
-
 li, .card {
   padding: 0.65rem 0;
-  border-bottom: 1px dashed #e5d8c6;
+  border-bottom: 1px dashed #e6d7c4;
 }
-
 li:last-child, .card:last-child { border-bottom: 0; }
 
 .check {
   display: flex;
   gap: 0.5rem;
   align-items: flex-start;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   margin: 0.35rem 0;
   font-family: system-ui, -apple-system, sans-serif;
 }
-
-.check input { width: auto; margin-top: 0.2rem; }
+.check input {
+  width: auto;
+  min-height: auto;
+  margin-top: 0.2rem;
+}
 
 .ok { color: var(--ok); font-weight: 600; }
 .warn { color: var(--warn); font-weight: 600; }
-.muted { color: var(--muted); font-size: 0.85rem; }
+.muted { color: var(--muted); font-size: 0.82rem; }
 
 footer {
-  margin-top: 1.5rem;
-  padding: 1rem 1.1rem;
+  margin-top: 1.1rem;
+  padding: 0.95rem 1.1rem;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--card);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.82rem;
   color: var(--muted);
-  font-size: 0.9rem;
 }
-
+footer p { margin: 0; }
 footer strong { color: var(--ink); }
-
-.empty {
-  color: var(--muted);
-  font-size: 0.9rem;
-  font-style: italic;
-}

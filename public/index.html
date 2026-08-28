@@ -2,18 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#f3ebe0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f0e6d8" />
+  <meta name="description" content="ForgeHandoff by Mourad.Soltani — client onboarding, project handoff, invoice recovery." />
   <title>ForgeHandoff — Mourad.Soltani</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
   <style>
-    /* critical fallback if external CSS fails */
-    body{margin:0;font-family:Georgia,serif;background:#f3ebe0;color:#1a1714}
-    .shell{max-width:1100px;margin:0 auto;padding:1rem}
-    .top,.grid section,footer{background:#fffcf7;border:1px solid #d9ccb8;border-radius:12px;padding:1rem;margin-bottom:1rem}
-    button{background:#1a1714;color:#fff;border:0;padding:.65rem .8rem;border-radius:8px}
-    #upgradeBtn{background:#c45c26}
-    input,select{width:100%;padding:.6rem;margin:.25rem 0;border:1px solid #d9ccb8;border-radius:8px}
+    /* critical path — works even if external CSS lags on mobile */
+    body{margin:0;font-family:Georgia,serif;background:#f0e6d8;color:#1a1714}
+    .shell{max-width:1080px;margin:0 auto;padding:.85rem}
+    .top,.grid section,footer{background:#fffcf7;border:1px solid #d4c4ae;border-radius:14px;padding:1rem;margin-bottom:.9rem;box-shadow:0 10px 28px rgba(26,23,20,.07)}
+    .sig{letter-spacing:.18em;text-transform:uppercase;font-size:.66rem;color:#c0451a;font-family:system-ui,sans-serif;font-weight:700;margin:0}
+    h1{margin:.2rem 0 .3rem;font-size:clamp(1.9rem,6vw,2.4rem);line-height:1.08}
+    #planBadge{display:inline-block;margin:.7rem 0 .65rem;padding:.28rem .7rem;border-radius:999px;background:#f6e4d6;border:1px solid #e8c9b0;font:600 .78rem system-ui,sans-serif}
+    #upgradeBtn{background:#c0451a!important;color:#fff;border:0;border-radius:10px;padding:.65rem 1rem;font:600 .92rem system-ui,sans-serif}
+    form{display:grid;gap:.5rem}
+    input,select,button{width:100%;min-height:2.65rem;padding:.65rem;border:1px solid #d4c4ae;border-radius:10px;font:inherit}
+    button{background:#1a1714;color:#fff;border:0;font-family:system-ui,sans-serif;font-weight:600}
+    .health{font-family:system-ui,sans-serif;font-size:.88rem}
+    .grid{display:grid;gap:.9rem}
+    @media(min-width:860px){.grid{grid-template-columns:repeat(3,1fr)}}
   </style>
 </head>
 <body>
@@ -26,7 +34,7 @@
         <p id="planBadge">Plan: free | Mourad.Soltani</p>
         <button type="button" id="upgradeBtn">Upgrade to Pro (Stripe)</button>
       </div>
-      <div id="health" class="health"><strong>Loading…</strong></div>
+      <div id="health" class="health"><strong>Loading...</strong></div>
     </header>
 
     <main class="grid">
@@ -55,7 +63,7 @@
         <h2>Invoice recovery</h2>
         <form id="invoiceForm">
           <select name="clientId" id="invoiceClient" required></select>
-          <input name="amount" type="number" min="1" step="0.01" placeholder="Amount" required />
+          <input name="amount" type="number" min="1" step="0.01" placeholder="Amount" required inputmode="decimal" />
           <input name="dueDate" type="date" required />
           <button type="submit">Log invoice</button>
         </form>
@@ -64,9 +72,9 @@
     </main>
 
     <footer>
-      <p>ForgeHandoff v1.3 | Built and signed by <strong>Mourad.Soltani</strong> | For sale / partnership</p>
+      <p>ForgeHandoff v1.4 | Built and signed by <strong>Mourad.Soltani</strong> | For sale / partnership</p>
     </footer>
   </div>
-  <script src="app.js"></script>
+  <script src="/app.js"></script>
 </body>
 </html>
