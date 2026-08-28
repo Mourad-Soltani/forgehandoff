@@ -8,39 +8,57 @@ Indie agencies and freelancers lose hours to messy kickoffs and unpaid invoices.
 
 ## Why this product
 
-Search and buyer demand in 2026 clusters around:
+2026 demand clusters around:
 
 - client portals / project handoff for agencies
 - invoice follow-up / payment recovery
 - onboarding checklists for professional services
 
-ForgeHandoff is the wedge: one workspace, no cloud lock-in in v1, clear upgrade path to hosted SaaS.
+ForgeHandoff is the wedge: one workspace, browser-only or Node API, clear path to hosted SaaS + Stripe.
 
 ## Quick start
 
 ```bash
-node --test tests/*.test.js   # health tests
-node server.js                # http://127.0.0.1:4173 (API + UI)
+node --test tests/*.test.js   # health tests (must pass)
+node server.js                # http://127.0.0.1:4173
 ```
 
-**Hosted demo:** static files in `public/` (browser localStorage). Deployed on Vercel.
+Node 18+.
 
-Requires Node 18+ for tests and the optional local API server.
+### Modes
+
+| Mode | How | Data |
+|------|-----|------|
+| Browser | Open `public/` or Vercel static | `localStorage` |
+| API | `node server.js` | `data/workspace.json` |
+
+### Stripe (optional)
+
+```bash
+export STRIPE_SECRET_KEY=sk_test_...
+# optional STRIPE_PRICE_PRO=price_...
+node server.js
+# POST /api/billing/checkout  { "planId": "pro" }
+```
+
+Plans in `src/billing.js`: Free · Pro $29/mo · Agency $99/mo.
 
 ## Health
 
-`npm test` / `npm run health` must pass before release.
+```bash
+npm test
+# or
+node --test tests/*.test.js
+```
 
-## Sale
+## Sale / partnership
 
-Product is listed for acquisition or partnership.
+- Author: **Mourad.Soltani**
+- License: MIT
+- Ask band: $4,500–$12,000 (pre-revenue MVP — no fake MRR)
+- Docs: `docs/SALE.md`, `docs/ACQUIRE_LISTING.md`, `docs/OUTREACH.md`, `docs/DESIGN_PARTNER.md`, `docs/CHECKLIST.md`
 
-- Repo: public under MIT
-- Author: Mourad.Soltani
-- Positioning: boring B2B workflow, not another AI wrapper
-
-See `docs/SALE.md`, `docs/OUTREACH.md`, and `docs/ACQUIRE_LISTING.md`.
-
+Repo: https://github.com/Mourad-Soltani/forgehandoff
 
 ## Signature
 
