@@ -1,4 +1,4 @@
-/* ForgeHandoff UI — Mourad.Soltani
+/* ForgeHandoff UI - Mourad.Soltani
  * Dual mode: /api/* when server is present, else localStorage (Vercel static).
  */
 const SIGNATURE = "Mourad.Soltani";
@@ -125,9 +125,9 @@ async function refresh() {
   const h = health.workspace;
   document.getElementById("health").innerHTML =
     "<strong>" + (h.healthy ? "Healthy" : "Needs attention") + "</strong>" +
-    '<div class="muted">' + h.clients + " clients · " + h.openProjects + " open · plan: " + (h.plan || "free") + "</div>" +
-    "<div>Avg handoff " + h.avgHandoffScore + "% · At risk $" + h.atRisk + "</div>" +
-    '<div class="muted">' + (mode === "api" ? "API mode" : "Browser mode") + " · " + health.signature + "</div>";
+    '<div class="muted">' + h.clients + " clients | " + h.openProjects + " open | plan: " + (h.plan || "free") + "</div>" +
+    "<div>Avg handoff " + h.avgHandoffScore + "% | At risk $" + h.atRisk + "</div>" +
+    '<div class="muted">' + (mode === "api" ? "API mode" : "Browser mode") + " | " + health.signature + "</div>";
 
   const clients = document.getElementById("clients");
   clients.innerHTML = "";
@@ -155,8 +155,8 @@ async function refresh() {
       .join("");
     projects.appendChild(
       el(
-        '<div class="card"><strong>' + p.name + "</strong> · " + (client ? client.name : "") +
-          '<div class="muted">' + p.status + " · score " + score(p.checklist) + "% · Mourad.Soltani</div>" + items + "</div>"
+        '<div class="card"><strong>' + p.name + "</strong> | " + (client ? client.name : "") +
+          '<div class="muted">' + p.status + " | score " + score(p.checklist) + "% | Mourad.Soltani</div>" + items + "</div>"
       )
     );
   });
@@ -172,9 +172,9 @@ async function refresh() {
       const overdue = !inv.paid && inv.dueDate < now;
       invoices.appendChild(
         el(
-          "<li><strong>$" + inv.amount + "</strong> · " + (client ? client.name : "") +
+          "<li><strong>$" + inv.amount + "</strong> | " + (client ? client.name : "") +
             '<div class="' + (inv.paid ? "ok" : overdue ? "warn" : "") + '">' +
-            (inv.paid ? "Paid" : overdue ? "Overdue" : "Open") + " · due " + inv.dueDate + "</div>" +
+            (inv.paid ? "Paid" : overdue ? "Overdue" : "Open") + " | due " + inv.dueDate + "</div>" +
             (inv.paid ? "" : '<button data-pay="' + inv.id + '">Mark paid</button>') +
             "</li>"
         )
@@ -182,7 +182,7 @@ async function refresh() {
     });
 
   const planEl = document.getElementById("planBadge");
-  if (planEl) planEl.textContent = "Plan: " + (ws.plan || "free") + " · Mourad.Soltani";
+  if (planEl) planEl.textContent = "Plan: " + (ws.plan || "free") + " | Mourad.Soltani";
 }
 
 async function addClient(data) {
@@ -332,11 +332,11 @@ if (upgradeBtn) {
         (data.error || "Checkout unavailable") +
           "\n" +
           (data.setup ? data.setup.join("\n") : "") +
-          "\n— Mourad.Soltani"
+          "\n- Mourad.Soltani"
       );
     } catch (e) {
       alert(
-        "Stripe Checkout needs the local API server with STRIPE_SECRET_KEY.\nBrowser-only mode cannot charge.\n— Mourad.Soltani"
+        "Stripe Checkout needs the local API server with STRIPE_SECRET_KEY.\nBrowser-only mode cannot charge.\n- Mourad.Soltani"
       );
     }
   });

@@ -3,60 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f3ebe0" />
   <title>ForgeHandoff — Mourad.Soltani</title>
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* critical fallback if external CSS fails */
+    body{margin:0;font-family:Georgia,serif;background:#f3ebe0;color:#1a1714}
+    .shell{max-width:1100px;margin:0 auto;padding:1rem}
+    .top,.grid section,footer{background:#fffcf7;border:1px solid #d9ccb8;border-radius:12px;padding:1rem;margin-bottom:1rem}
+    button{background:#1a1714;color:#fff;border:0;padding:.65rem .8rem;border-radius:8px}
+    #upgradeBtn{background:#c45c26}
+    input,select{width:100%;padding:.6rem;margin:.25rem 0;border:1px solid #d9ccb8;border-radius:8px}
+  </style>
 </head>
 <body>
-  <header class="top">
-    <div>
-      <p class="sig">Mourad.Soltani</p>
-      <h1>ForgeHandoff</h1>
-      <p class="tag">Onboard clients. Hand off projects. Recover invoices.</p>
-      <p id="planBadge" class="muted">Plan: free · Mourad.Soltani</p>
-      <button type="button" id="upgradeBtn">Upgrade to Pro (Stripe)</button>
-    </div>
-    <div id="health" class="health"></div>
-  </header>
+  <div class="shell">
+    <header class="top">
+      <div>
+        <p class="sig">Mourad.Soltani</p>
+        <h1>ForgeHandoff</h1>
+        <p class="tag">Onboard clients. Hand off projects. Recover invoices.</p>
+        <p id="planBadge">Plan: free | Mourad.Soltani</p>
+        <button type="button" id="upgradeBtn">Upgrade to Pro (Stripe)</button>
+      </div>
+      <div id="health" class="health"><strong>Loading…</strong></div>
+    </header>
 
-  <main class="grid">
-    <section>
-      <h2>New client</h2>
-      <form id="clientForm">
-        <input name="name" placeholder="Name" required />
-        <input name="email" type="email" placeholder="Email" />
-        <input name="company" placeholder="Company" />
-        <button type="submit">Add client</button>
-      </form>
-      <ul id="clients"></ul>
-    </section>
+    <main class="grid">
+      <section>
+        <h2>New client</h2>
+        <form id="clientForm">
+          <input name="name" placeholder="Name" required autocomplete="name" />
+          <input name="email" type="email" placeholder="Email" autocomplete="email" />
+          <input name="company" placeholder="Company" autocomplete="organization" />
+          <button type="submit">Add client</button>
+        </form>
+        <ul id="clients"></ul>
+      </section>
 
-    <section>
-      <h2>New project</h2>
-      <form id="projectForm">
-        <select name="clientId" id="clientSelect" required></select>
-        <input name="name" placeholder="Project name" required />
-        <button type="submit">Start onboarding</button>
-      </form>
-      <div id="projects"></div>
-    </section>
+      <section>
+        <h2>New project</h2>
+        <form id="projectForm">
+          <select name="clientId" id="clientSelect" required></select>
+          <input name="name" placeholder="Project name" required />
+          <button type="submit">Start onboarding</button>
+        </form>
+        <div id="projects"></div>
+      </section>
 
-    <section>
-      <h2>Invoice recovery</h2>
-      <form id="invoiceForm">
-        <select name="clientId" id="invoiceClient" required></select>
-        <input name="amount" type="number" min="1" step="0.01" placeholder="Amount" required />
-        <input name="dueDate" type="date" required />
-        <button type="submit">Log invoice</button>
-      </form>
-      <ul id="invoices"></ul>
-    </section>
-  </main>
+      <section>
+        <h2>Invoice recovery</h2>
+        <form id="invoiceForm">
+          <select name="clientId" id="invoiceClient" required></select>
+          <input name="amount" type="number" min="1" step="0.01" placeholder="Amount" required />
+          <input name="dueDate" type="date" required />
+          <button type="submit">Log invoice</button>
+        </form>
+        <ul id="invoices"></ul>
+      </section>
+    </main>
 
-  <footer>
-    <p>ForgeHandoff v1.0 · Built and signed by <strong>Mourad.Soltani</strong> · For sale / partnership</p>
-  </footer>
-  <script src="/engine.js"></script>
-  <script src="/app.js"></script>
+    <footer>
+      <p>ForgeHandoff v1.3 | Built and signed by <strong>Mourad.Soltani</strong> | For sale / partnership</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
-

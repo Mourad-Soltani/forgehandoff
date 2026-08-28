@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "forgehandoff",
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
@@ -8,7 +7,14 @@
       "source": "/(.*)",
       "headers": [
         { "key": "X-Signature", "value": "Mourad.Soltani" },
-        { "key": "X-Product", "value": "ForgeHandoff" }
+        { "key": "X-Product", "value": "ForgeHandoff" },
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/styles.css",
+      "headers": [
+        { "key": "Content-Type", "value": "text/css; charset=utf-8" }
       ]
     }
   ]
