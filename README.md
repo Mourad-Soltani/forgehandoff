@@ -20,10 +20,12 @@ ForgeHandoff is the wedge: one workspace, no cloud lock-in in v1, clear upgrade 
 
 ```bash
 node --test tests/*.test.js   # health tests
-node server.js                # http://127.0.0.1:4173
+node server.js                # http://127.0.0.1:4173 (API + UI)
 ```
 
-Requires Node 18+.
+**Hosted demo:** static files in `public/` (browser localStorage). Deployed on Vercel.
+
+Requires Node 18+ for tests and the optional local API server.
 
 ## Health
 
@@ -37,7 +39,8 @@ Product is listed for acquisition or partnership.
 - Author: Mourad.Soltani
 - Positioning: boring B2B workflow, not another AI wrapper
 
-See `docs/SALE.md` and `docs/OUTREACH.md`.
+See `docs/SALE.md`, `docs/OUTREACH.md`, and `docs/ACQUIRE_LISTING.md`.
+
 
 ## Signature
 

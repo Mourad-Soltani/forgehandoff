@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "name": "forgehandoff",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Signature", "value": "Mourad.Soltani" },
+        { "key": "X-Product", "value": "ForgeHandoff" }
+      ]
+    }
+  ]
+}
